@@ -1,9 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class ValidAnagram_e_242 {
     public boolean isAnagram(String s, String t) {
         int[] ct = new int[26];
