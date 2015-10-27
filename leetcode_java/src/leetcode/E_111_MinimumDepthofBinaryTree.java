@@ -14,3 +14,6 @@ public class E_111_MinimumDepthofBinaryTree {
         else return(Math.min(minDepth(root.left), minDepth(root.right))+1);
     }
 }
+
+//notice that when a node has one child, 
+//the other non-child is not a leave (which height should not be consider zero)
