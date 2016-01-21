@@ -12,4 +12,13 @@ public class M_136_SingleNumber {
         Object[] myArr = hs.toArray();
         return (int)myArr[0];
     }
+    
+    //bitwise operation
+    public int singleNumber2(int[] nums) {
+        int result = 0;
+        for(int i : nums) {
+            result ^= i;	//exclusive OR
+        }
+        return result;
+    }
 }
