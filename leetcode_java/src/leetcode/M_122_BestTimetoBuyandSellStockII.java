@@ -8,20 +8,25 @@ public class M_122_BestTimetoBuyandSellStockII {
         
         ArrayList<Integer> transactions = new ArrayList<Integer>();
         
-        int currentBuy = prices[0];
+        int currentBuy = Integer.MAX_VALUE;
         int currentSell = 0;
         int profit = 0;
         
-        for(int i = 1; i<prices.length; i++) {
-            if(currentBuy > prices[i]) {
+        for(int i = 0; i<prices.length; i++) {
+            if(currentBuy > prices[i] && currentSell == 0) {
                 currentBuy = prices[i];
                 System.out.println("currentBuy: "+currentBuy);
             }
             
-            if(currentSell <= prices[i]) {
+            else if(currentBuy < prices[i] && currentSell ==0 ) {
+            	currentSell = prices[i];
+                System.out.println("currentSell: "+currentSell);
+            }
+            
+            else if(currentSell < prices[i] && currentSell != 0) {
                 currentSell = prices[i];
                 System.out.println("currentSell: "+currentSell);
-            }else { //lets sell!
+            }else if(currentSell > prices[i] && currentSell != 0){ //lets sell!
                 System.out.println("profit: "+currentSell +" - "+currentBuy);
 
                 profit = profit + currentSell - currentBuy;
@@ -33,11 +38,9 @@ public class M_122_BestTimetoBuyandSellStockII {
         if(currentSell > currentBuy) {
             profit = profit + currentSell - currentBuy;
         }
-        System.out.println("profit: "+profit);
+//        System.out.println("profit: "+profit);
         
         return profit;
-        
-        
     }
     
     public static void main(String[] args) {
